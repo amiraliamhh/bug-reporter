@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
+import { Button, Radio } from 'antd'
+
 const DropDown = ({ }) => {
     const [ categories, setCategories ] = useState([]);
     const [ selectedCategory, setSelectedCategory ] = useState(categories.length ? categories[0] : '')
@@ -20,24 +22,24 @@ const DropDown = ({ }) => {
     })
 
     const handleDropDownChange = (event) => {
-        setSelectedCategory(event.taget.value)
+        setSelectedCategory(event.target.value)
     }
 
     return (
         <div style={styles} >
         {
             categories.length
-            ? <select 
-            name="categories"
-            onChange={handleDropDownChange}
-            >
+            ? <Radio.Group value={selectedCategory} onChange={handleDropDownChange} >
             {
                 categories.map((cat, index) => {
-                    return <option value={cat} key={index} >{ cat }</option>
+
+                    return (
+                        <Radio value={cat} key={index} >{ cat }</Radio>
+                    )
                 })
             }
-            </select>
-            : <p>شما هنوز هیچ دسته بندی‌ای ایجاد نکرده‌اید. <a href="/">ایجاد دسته بندی جدید</a></p>
+            </Radio.Group>
+            : <p>شما هنوز هیچ دسته بندی‌ای ایجاد نکرده‌اید. <Button type="primary" >ایجاد دسته بندی جدید</Button></p>
         }
         </div>
     )

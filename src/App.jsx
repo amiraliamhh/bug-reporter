@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import ReactDOM from 'react-dom'
+import { Button } from 'antd'
 
 import ReactQuill from 'react-quill'
 
@@ -16,6 +17,7 @@ const App = ({ pageX, pageY }) => {
         minHeight: '100px',
         boxShadow: '0px 3px 6px rgba(0,0,0,.5)',
         borderRadius: '3px',
+        padding: '10px'
     }
 
     const handleOutsideClick = (event) => {
@@ -33,14 +35,14 @@ const App = ({ pageX, pageY }) => {
 
     return (
         <div style={styles} ref={ref} >
-            <div>
-                <DropDown />
-            </div>
+            <DropDown />
 
             <ReactQuill
             value={text}
             onChange={setText}
             />
+
+            <Button style={{ margin: '10px' }} >ثبت</Button>
         </div>
     )
 }
