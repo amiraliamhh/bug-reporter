@@ -7,7 +7,7 @@
           "matches": [
             "<all_urls>"
           ],
-          "js": ["rext.js"],
+          "js": ["script.js", "options.js"],
           "css": ["style.css"]
         }
     ],
